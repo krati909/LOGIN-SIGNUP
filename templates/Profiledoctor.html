@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<style>
-			.submit {
+		.submit {
     margin-top: 40px;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -180,32 +180,16 @@
                 <h4>Address: {{Address}}</h4>
                 <h4>State: {{State}}</h4>
                 <h4>Pincode: {{Pincode}}</h4>
-            <br><br><br><h1>Blogs</h1>
-            <form action="/blog/alllist/" method="POST">
+
+
+                <form action="/blog/" method="POST">
                     <input type="hidden" name="user_id" value={{user_id}}>
-                <h1><button class=submit type="submit" style="color: #0B5345;
-			font-family: Georgia, sans-serif;
-			font-style: italic;
-			font-size:25px;">Mental Health</button></h1>
-                <h1><button class=submit type="submit"  style="color: #0B5345;
-			font-family: Georgia, sans-serif;
-			font-style: italic;
-			font-size:25px;">Heart Disease</button></h1>
-                <h1><button class=submit type="submit"  style="color: #0B5345;
-			font-family: Georgia, sans-serif;
-			font-style: italic;
-			font-size:25px;" >Covid19</button></h1>
-                <h1><button class=submit type="submit"  style="color: #0B5345;
-			font-family: Georgia, sans-serif;
-			font-style: italic;
-			font-size:25px;">Immunization</button></h1>
+                    <button class= submit type="submit">New Blog</button>
                 </form>
-
-
-<!--                <form action="/new_appointment/">-->
-<!--                    <input type="hidden" name="user_id" value="{{user_id}}">-->
-<!--                    <button type="submit">New appointment</button>-->
-<!--                </form>-->
+                <form action="/blog/list/" method="POST">
+                    <input type="hidden" name="user_id" value={{user_id}}>
+                    <button class=submit type="submit">list Blog</button>
+                </form>
 <!--            </h5></center>-->
 <!--            <h2>Upcoming Appointments&#45;&#45;&ndash;&gt;</h2>-->
 <!--			<div class="rowslider">-->

@@ -42,9 +42,14 @@ def signin(request):
     query2 = "select * from sign_appointment where user_id='" + str(data[0]) + "'"
     cursor.execute(query2)
     data1 = cursor.fetchone()
-    if data[4]==psw:
+    if data[4]==psw and data[11]=="Doctor":
+        data= {'user_id':data[0],'Name':data[1],'Contact_number':data[2],'Address':data[8],'Email':data[3],'Password':data[4],'Pincode':data[9],'State':data[10],'user_type':data[11],'username':data[12]}
+               # 'appointment_id':data1[0],'timedate':data1[1],'worker_id':data[4]}
+        return render(request,'Profiledoctor.html',data)
+    elif data[4]==psw:
         data= {'user_id':data[0],'Name':data[1],'Contact_number':data[2],'Address':data[8],'Email':data[3],'Password':data[4],'Pincode':data[9],'State':data[10],'user_type':data[11],'username':data[12]}
                # 'appointment_id':data1[0],'timedate':data1[1],'worker_id':data[4]}
         return render(request,'profile.html',data)
+
     else:
         return redirect('signup_login')

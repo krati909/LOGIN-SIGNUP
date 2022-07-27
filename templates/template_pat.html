@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+.submit {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: Georgia, sans-serif;
+  }
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+/* Style the container/contact section */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+h3{
+  color: #1abc9c;
+  font-family: Georgia, sans-serif;
+  font-style: italic;
+  font-size: 30px;
+  text-shadow: 2px 2px 4px rgb(196, 245, 192);
+}
+p {
+  color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: italic;
+}
+
+b{
+  color: black;
+  font-style: normal;
+}
+
+/* Create two columns that float next to eachother */
+.form {
+  align-items: center;
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #1abc9c;
+}
+/* Clear floats after the columns */
+.form:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .form, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+        <div class="header">
+
+            <div class="navbar">
+                <a href="/main/">Home</a>
+                <a href="/contact/">Contact</a>
+                <a href="/aboutus/">About</a>
+            </div>
+        </div>
+
+
+<div class="container">
+<h1>Blogs</h1>
+    <h2>{{category}}</h2>
+
+<table border='1'>
+  <tr>
+
+    <th>Title</th>
+    <th>Image</th>
+    <th>Summary</th>
+  </tr>
+  {% for x in message %}
+    <tr>
+
+      <td>{{ x.title }}</td>
+        <td><img src="data:image/jpeg;base64,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">
+        <td>{{ x.summary }}</td>
+    </tr>
+  {% endfor %}
+</table>
+</div>
+
+</body>
+</html>
+

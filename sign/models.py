@@ -42,6 +42,8 @@ class Users(models.Model):
     image = models.ImageField(null=True, blank=True)
     user_type = models.CharField(choices=choices, max_length=300)
     username = models.CharField( max_length=300,null=True,blank=True)
+
+
 class Workers(models.Model):
     name = models.CharField(max_length=100)
     contact = models.CharField(max_length=20)
@@ -59,3 +61,11 @@ class Appointment(models.Model):
     user_id = models.IntegerField(default=0)
     Appointment_date = models.CharField(max_length=100)
     completed = models.IntegerField(default=0)
+
+
+class Blog(models.Model):
+    title = models.CharField(max_length=100,null=True, blank=True)
+    image=models.ImageField(null=True, blank=True)
+    category=models.CharField(max_length=100,null=True, blank=True,choices=(( 'Mental Health','Mental Health'),('Heart Disease','Heart Disease') ,('Covid19','Covid19'),('Immunization','Immunization')))
+    summary = models.TextField(max_length=100,null=True, blank=True)
+    content = models.TextField(max_length=1000, null=True, blank=True)
